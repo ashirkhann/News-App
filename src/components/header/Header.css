@@ -1,0 +1,11 @@
+header{
+    padding: 10px;
+    text-align: center;
+}
+header .mark-red{
+    background-color: var(--red-medium);
+    color: white;
+    padding: 0px 10px;
+    border-radius: 10px;
+    font-size: 1.6rem;
+}

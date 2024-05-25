@@ -1,0 +1,6 @@
+.news-listing{
+    width: inherit;
+    overflow-wrap: normal;
+    background-color: var(--grey-medium);
+    padding: 1rem;
+}

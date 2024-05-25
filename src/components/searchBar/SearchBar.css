@@ -1,0 +1,168 @@
+.search-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: var(--grey-light);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* this is a recreation of twitter search in css */
+.form {
+  --input-text-color: #fff;
+  --input-bg-color: #4a4a4a;
+  --focus-input-bg-color: transparent;
+  --text-color: #949faa;
+  --active-color: var(--red-medium);
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+/* form style */
+.form {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 200px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* a fancy bg for showing background and border when focus. */
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* label styling */
+label {
+  width: 100%;
+  padding: 0.8em;
+  height: 40px;
+  padding-inline: var(--inline-padding-of-input);
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  position: absolute;
+}
+
+/* styling search-icon */
+.search {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+}
+
+/* svg -- size */
+svg {
+  width: 17px;
+  display: block;
+}
+
+/* styling of input */
+.input {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: none;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-color)
+}
+
+/* input background change in focus */
+.input:focus~.fancy-bg {
+  border: 1.5px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+/* search icon color change in focus */
+.input:focus~.search {
+  fill: var(--active-color);
+}
+
+/* showing close button when typing */
+.input:valid~.close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
+}
+
+
+
+/* dropdown */
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+  /* Adjust width as needed */
+}
+
+.dropdown-content {
+  appearance: none;
+  padding: 8px 12px;
+  font-size: 13px;
+  width: 100%;
+  background-color: var(--grey-medium);
+  border-radius: 1rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  color: rgb(205, 205, 205);
+  font-weight: bold;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2ZmMDAwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuNDUgNC4xNUwyLjUgMy4wOGw2LjUgNi41IDYuNS02LjVMMTQuNTQgNC4xNSAxNS41NCA1LjE0bC02LjUgNi41LTYuNS02LjVMMS41NCA1LjE0IDEuNDUgNC4xNXoiLz4KPC9zdmc+Cg==');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 12px;
+  height: 35px;
+}
+
+.dropdown-content:focus {
+  border: 1.5px solid var(--red-dark);
+}
+
+.dropdown-content option {
+  background-color: var(--grey-medium);
+  color: rgb(205, 205, 205);
+  border: none;
+}
+
+
+@media screen and (max-width: 600px) {
+  .search-section {
+    padding: 0.5rem;
+  }
+
+  .dropdown-content {
+    width: 10rem;
+  }
+
+  .form {
+    width: 150px;
+  }
+}
